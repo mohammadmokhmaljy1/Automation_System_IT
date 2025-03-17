@@ -1,0 +1,82 @@
+[
+  {
+    "ContainingType": "IT_Automation.API.Controllers.UserController",
+    "Method": "LoginAsync",
+    "RelativePath": "api/user/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginRequest",
+        "Type": "Infrastructure.Core.DTOs.Requestes.LoginRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IT_Automation.API.Controllers.UserController",
+    "Method": "RegisterAsync",
+    "RelativePath": "api/user/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerRequest",
+        "Type": "Infrastructure.Core.DTOs.Requestes.RegisterRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IT_Automation.API.Controllers.UserController",
+    "Method": "ResetPasswordAsync",
+    "RelativePath": "api/user/resetpassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resetPasswordRequestDto",
+        "Type": "Infrastructure.Core.DTOs.Requestes.ResetPasswordRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IT_Automation.API.Controllers.UserController",
+    "Method": "SendPasswordResetCodeAsync",
+    "RelativePath": "api/user/sendpasswordresetcode",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IT_Automation.API.Controllers.UserController",
+    "Method": "VerifyEmailAsync",
+    "RelativePath": "api/user/verifyemail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "verifyEmailRequestDto",
+        "Type": "Infrastructure.Core.DTOs.Requestes.VerifyEmailRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
