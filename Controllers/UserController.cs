@@ -1,6 +1,7 @@
 ﻿using Infrastructure.Core.DTOs.Requestes;
 using Infrastructure.Core.Interfaces.Application.EntityServices;
 using IT_Automation.API.Application.UtilityServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IT_Automation.API.Controllers
@@ -93,6 +94,29 @@ namespace IT_Automation.API.Controllers
             {
                 return BadRequest(ex.Message);
             }
+        }
+        [Authorize]
+        [HttpGet("profile")]
+        public IActionResult Profile()
+        {
+            if (User.IsInRole("Student"))
+            {
+                return Ok("أنت طالب!");
+            }
+            else if (User.IsInRole("Professor"))
+            {
+                return Ok("أنت دكتور!");
+            }
+            else
+            {
+                return Forbid();
+            }
+        }
+        [Authorize(Roles = "Student,Professor")]
+        [HttpGet("dashboard")]
+        public IActionResult Dashboard()
+        {
+            return Ok("مرحبًا، لديك صلاحية دخول كطالب أو كدكتور!");
         }
     }
 }

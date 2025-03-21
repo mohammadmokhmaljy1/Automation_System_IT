@@ -5,8 +5,9 @@ using Infrastructure.Core.Entities;
 using Infrastructure.Core.Interfaces.Application.EntityServices;
 using Infrastructure.Core.Interfaces.Application.UtilityServices;
 using Infrastructure.Core.Interfaces.Infrastructure;
-using IT_Automation.API.Application.UtilityServices; 
+using IT_Automation.API.Application.UtilityServices;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.Data;
 
 namespace IT_Automation.API.Application.EntityServices
 {
@@ -32,7 +33,53 @@ namespace IT_Automation.API.Application.EntityServices
             _httpContext = httpContextAccessor;
         }
 
+        public Task<GeneralResponse> ApplyForJob(JobApplicationRequest request)
+        {
+            throw new NotImplementedException();
+        }
 
+        //public async Task<GeneralResponse> ApplyForJob(JobApplicationRequest request)
+        //{
+        //    if (await _userManager.FindByEmailAsync(request.Email) != null)
+        //        return GeneralResponse.BadRequest("Email is already in use.");
+
+        //    if (await _userManager.FindByNameAsync(registerRequest.UserName) != null)
+        //        return GeneralResponse.BadRequest("Username is already taken.");
+
+        //    var user = new AppUser
+        //    {
+        //        Email = registerRequest.Email,
+        //        EmailConfirmed = false,
+        //        PhoneNumber = registerRequest.Phone,
+        //        UserName = registerRequest.UserName
+        //    };
+        //    var result = await _userManager.CreateAsync(user, registerRequest.Password);
+
+        //    if (!result.Succeeded)
+        //        return GeneralResponse.BadRequest($"Registration failed: {string.Join(", ", result.Errors.Select(e => e.Description))}");
+
+        //    await _userManager.AddToRoleAsync(user, Roles.Student.GetValue());
+        //    await _verificationService.SendVerificationCodeAsync(user.Id, user.Email, "Email Verification");
+
+        //    var tokne = await _jwtService.GenerateToken(user, _userManager);
+        //    var data = new LoginResponseDto() { Token = tokne };
+        //    return GeneralResponse.Ok("User created. Please check your email for verification code.", data);
+        //}
+
+        public Task<GeneralResponse> ApproveTeacherApplication(ApproveApplicationRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GeneralResponse> AssignHeadOfDepartment(AssignHeadRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GeneralResponse> CreateStudent(CreateStudentRequest request)
+        {
+            throw new NotImplementedException();
+        }
 
         public async Task<GeneralResponse> GetUserById(Guid UserId)
         {
@@ -74,7 +121,7 @@ namespace IT_Automation.API.Application.EntityServices
             if (!result.Succeeded)
                 return GeneralResponse.BadRequest($"Registration failed: {string.Join(", ", result.Errors.Select(e => e.Description))}");
 
-            await _userManager.AddToRoleAsync(user, Roles.User.GetValue());
+            await _userManager.AddToRoleAsync(user, Roles.Student.GetValue());
             await _verificationService.SendVerificationCodeAsync(user.Id, user.Email, "Email Verification");
 
             var tokne = await _jwtService.GenerateToken(user, _userManager);
@@ -104,6 +151,16 @@ namespace IT_Automation.API.Application.EntityServices
             await _verificationService.SendVerificationCodeAsync(user.Id, user.Email, "Password Reset", resetToken);
 
             return GeneralResponse.Ok("Password reset token sent to your email.");
+        }
+
+        public Task<GeneralResponse> SetProjectsCount(ProjectsCountRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GeneralResponse> SetStudentStatus(StudentStatusRequest request)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<GeneralResponse> VerifyEmailAsync(VerifyEmailRequestDto verifyEmailRequestDto)

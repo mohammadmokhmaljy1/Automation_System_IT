@@ -28,7 +28,7 @@
 
 	<ItemGroup>
 	  <Reference Include="Infrastructure">
-	    <HintPath>bin\Debug\net8.0\Infrastructure.dll</HintPath>
+	    <HintPath>..\Nawar\Infrastructure\bin\Debug\net8.0\Infrastructure.dll</HintPath>
 	  </Reference>
 	</ItemGroup>
 

@@ -1,12 +1,11 @@
 {
   "Version": 1,
-  "Hash": "JVU9akHsYPnScsLMXIn+wPe7fsXveYwivZ0/GsmQTT0=",
+  "Hash": "5h8mMOFrnR2lZ2/OzkybWHKOifOO/HmPRGvit3+xJ1o=",
   "Source": "IT_Automation.API",
   "BasePath": "_content/IT_Automation.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "Assets": []
 }

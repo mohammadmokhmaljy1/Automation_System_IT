@@ -31,15 +31,25 @@ namespace IT_Automation.API
 
             services.AddIdentity<AppUser, IdentityRole<Guid>>(options =>
             {
+                // إعدادات كلمة المرور
                 options.Password.RequireDigit = true;
                 options.Password.RequireLowercase = true;
-                options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = true;
                 options.Password.RequiredLength = 8;
+                options.Password.RequiredUniqueChars = 3;
+                options.Password.RequireNonAlphanumeric = true;
 
+                // إعدادات القفل بعد المحاولات الفاشلة
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
                 options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.AllowedForNewUsers = true;
 
+                // إعدادات تسجيل الدخول
+                options.SignIn.RequireConfirmedEmail = true;
+                options.SignIn.RequireConfirmedPhoneNumber = false;
+                options.SignIn.RequireConfirmedAccount = true;
+
+                // إعدادات المستخدم
                 options.User.RequireUniqueEmail = true;
             })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
